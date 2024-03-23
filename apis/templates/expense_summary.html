@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Summary</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        .chart-container {
+            display: inline-block;
+            width: 45%;
+            margin: 20px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Status</h1>
+
+    {% if user_status.score >= 70 %}
+        <p style="color: green; font-size: 20px; font-weight: bold;">Doing Great!</p>
+    {% elif user_status.score >= 30%}
+        <p style="color: green; font-size: 20px; font-weight: bold;">Good Going</p>
+    {% elif user_status.score > 0 %}
+        <p style="color: rgb(241, 227, 39); font-size: 20px; font-weight: bold;">Closer to Your Limit</p>
+    {% else %}
+        <p style="color: red; font-size: 20px; font-weight: bold;">Exceeded Your Limit</p>
+    {% endif %}
+    <p>Total Expenses: {{ total }}</p>
+    <p>Last Updated: {{ user_status.last_updated }}</p>
+    <p>Allowed Expense: {{ user_status.allowedexpense }}</p>
+    <p>Monthly Budget: {{ user_status.monthlybudget }}</p>
+    <p>Current Balance: {{ user_status.currentbalance }}</p>
+    <p>Score: {{ user_status.score }}</p>
+    
+    <p>Pincode: {{ user_status.pincode }}</p>
+    <div class="chart-container">
+        <canvas id="pieChart" width="300" height="300"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="lineChart" width="400" height="300"></canvas>
+    </div>
+
+    <script>
+        {% comment %} var ctx = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    {% for category, percentage in category_percentages.items %}
+                        "{{ category }}",
+                    {% endfor %}
+                ],
+                datasets: [{
+                    label: 'Percentage Spending',
+                    data: [
+                        {% for category, percentage in category_percentages.items %}
+                            {{ percentage }},
+                        {% endfor %}
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)', // Red
+                        'rgba(54, 162, 235, 0.5)', // Blue
+                        'rgba(255, 206, 86, 0.5)', // Yellow
+                        // Add more colors if you have more categories
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        // Add more colors if you have more categories
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'left',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Percentage Spending by Category'
+                    }
+                }
+            }
+        }); {% endcomment %}
+        var ctx = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [
+                {% for category, percentage in category_percentages.items %}
+                    "{{ category }}",
+                {% endfor %}
+            ],
+            datasets: [{
+                label: 'Percentage Spending',
+                data: [
+                    {% for category, percentage in category_percentages.items %}
+                        {{ percentage }},
+                    {% endfor %}
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)', // Red
+                    'rgba(54, 162, 235, 0.5)', // Blue
+                    'rgba(255, 206, 86, 0.5)', // Yellow
+                    'rgba(75, 192, 192, 0.5)', // Teal (New color)
+                    'rgba(153, 102, 255, 0.5)', // Purple (New color)
+                    'rgba(255, 159, 64, 0.5)', // Orange (New color)
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'left',
+                },
+                title: {
+                    display: true,
+                    text: 'Percentage Spending by Category'
+                }
+            }
+        }
+    });
+
+        var ctxLine = document.getElementById('lineChart').getContext('2d');
+        var dailySpendingData = {
+            labels: [
+                {% for data in daily_spending_data %}
+                    "{{ data.date|date:'Y-m-d' }}",
+                {% endfor %}
+            ],
+            datasets: [{
+                label: 'Daily Spending',
+                data: [
+                    {% for data in daily_spending_data %}
+                        {{ data.total }},
+                    {% endfor %}
+                ],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        };
+
+        var lineChart = new Chart(ctxLine, {
+            type: 'line',
+            data: dailySpendingData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Daily Spending'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
