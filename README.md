@@ -36,7 +36,7 @@ This Django based platform provides a Chrome extension for real-time tracking of
 1. **Clone the repository**
    
    ```bash
-    git clone https://github.com/your_username/project_name.git
+    git clone https://github.com/sameekshamalav/zenfi_desisproject.git
    
 2. **Installing Python**
    
