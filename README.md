@@ -75,7 +75,7 @@ This Django based platform provides a Chrome extension for real-time tracking of
 
     Add your credentials at the following:
 
-    - **Open desis_project/settings.py** : Add your mySQL workbench password in Database setting
+    - **Open desis_project/settings.py** : Add your mySQL workbench credentials in Database setting
     - **Open apis/views.py** : Place your OpenAI API key (If you don't have one, you can get it from [here](https://platform.openai.com/api-keys) ) at api_key in chatbot_view
     - **Open apis/views.py** : Place your API key for gemini connection at api_key in process_emails_with_gemini
    
