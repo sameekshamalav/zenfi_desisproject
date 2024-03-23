@@ -1,5 +1,5 @@
 # **ZenFi**
-Our platform provides a Chrome extension for real-time tracking of financial goals, serving as a transaction reminder tool during online purchases. Integrated chatbot offers personalized spending analysis and automatic expense tracking while maintaining user privacy. Users can leverage web scraping for price comparison and optimal purchases, alongside predictive analytics for future expense forecasting, empowering effective budgeting and financial planning.
+This Django platform provides a Chrome extension for real-time tracking of financial goals, serving as a transaction reminder tool during online purchases. Integrated chatbot offers personalized spending analysis and automatic expense tracking while maintaining user privacy. Users can leverage web scraping for price comparison and optimal purchases, alongside predictive analytics for future expense forecasting, empowering effective budgeting and financial planning.
 
 ## Table of Contents
 - [Features](#features)
@@ -14,11 +14,11 @@ Our platform provides a Chrome extension for real-time tracking of financial goa
   - Visualize your financial journey and stay motivated to achieve your goals.
 
 - *Transaction Reminder Extension:*
-  - Our Chrome extension offers a convenient way to effortlessly track your expenses with just one click.
+  - The Chrome extension offers a convenient way to effortlessly track your expenses with just one click.
   - Seamlessly integrated into your transaction experience.
 
 - *ChatBot Integration:*
-  - Interact with our chatbot for personalized spending analysis and recommendations based on your spending patterns.
+  - Interact with the chatbot for personalized spending analysis and recommendations based on your spending patterns.
 
 - *Option for Optimal Purchases:*
   - Use our feature to compare prices and find the best deals from e-commerce sites like Amazon and Flipkart.
@@ -49,6 +49,8 @@ Our platform provides a Chrome extension for real-time tracking of financial goa
     
      pip install beautifulsoup4
 
+     pip install openai
+
      pip install cryptography
 
      pip install google-generativeai
@@ -58,6 +60,16 @@ Our platform provides a Chrome extension for real-time tracking of financial goa
      pip install transformers
 
      pip install jwt
+
+     pip install pandas
+
+     pip install pymysql
+
+     pip install google-auth
+   
+  Also:
+  
+     sudo apt-get install php7.2-imap
 
 4. **Add your credentials**
 
