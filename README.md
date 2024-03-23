@@ -1,5 +1,5 @@
 # **ZenFi**
-This Django platform provides a Chrome extension for real-time tracking of financial goals, serving as a transaction reminder tool during online purchases. Integrated chatbot offers personalized spending analysis and automatic expense tracking while maintaining user privacy. Users can leverage web scraping for price comparison and optimal purchases, alongside predictive analytics for future expense forecasting, empowering effective budgeting and financial planning.
+This Django based platform provides a Chrome extension for real-time tracking of financial goals, serving as a transaction reminder tool during online purchases. Integrated chatbot offers personalized spending analysis and automatic expense tracking while maintaining user privacy. Users can leverage web scraping for price comparison and optimal purchases, alongside predictive analytics for future expense forecasting, empowering effective budgeting and financial planning.
 
 ## Table of Contents
 - [Features](#features)
